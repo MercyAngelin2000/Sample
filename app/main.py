@@ -1,5 +1,6 @@
+import imp
 from fastapi import FastAPI
-from . import models
+from app import models
 from .database import engine
 from .router import post, sqlalchemy , vote
 

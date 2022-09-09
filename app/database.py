@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine  #used to connect with db
 from sqlalchemy.ext.declarative import declarative_base  #to collect the obj that defined in new table
 from sqlalchemy.orm import sessionmaker # used to interact with db
-from . config import setting
+from app.config import setting
 
 
 SQLALCHEMY_DATABASE_URL = f"postgresql://{setting.database_username}:{setting.database_password}@{setting.database_hostname}:{setting.database_port}/{setting.database_name}"   #username:password@hostname/dbname
