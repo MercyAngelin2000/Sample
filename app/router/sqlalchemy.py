@@ -127,7 +127,7 @@ def updatepost(id:int,Post:schema.sqlmethod,db : Session = Depends(get_db),get_u
     db.commit()
     return {"Msg":p.first()} 
 
-@router.get("/sqlselectauth",response_model=schema.sqlmethod)
+@router.get("/sqlselectauth")
 def testpost(db : Session = Depends(get_db),get_user : int= Depends(oauth2.get_current_user)):
     p=db.query(models.Fastapisample).filter(models.Fastapisample.owner_id==get_user.id).all()
     if not p:
