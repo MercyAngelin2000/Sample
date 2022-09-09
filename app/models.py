@@ -1,7 +1,7 @@
 from sqlalchemy import Column,Integer,String,Boolean,BigInteger,Date,ForeignKey
 from sqlalchemy.sql.sqltypes import TIMESTAMP
 from sqlalchemy.sql.expression import text
-from .database import Base
+from . database import Base
 from sqlalchemy .orm import relationship
 
 class Login(Base):
