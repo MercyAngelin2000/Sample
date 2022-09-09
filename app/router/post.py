@@ -22,7 +22,7 @@ while True:                #until the database connection is true, it will not g
 myposts = [{"title": "Mercy1","content":"This is Mercy","id":1},{"title": "Mercy2","content":"My nick name is Juju","id":2 },{"title": "Mercy3","content":"Iam also known as Mylu","id":3}] #Global variable declaration
 #[] to get collection post, global variable declaration
 
-@router.get("/")
+@router.get("/fetch")
 def root():
     cur.execute("""SELECT * FROM fastapidemo """)
     posts = cur.fetchall()                         #fetching all the data in database
@@ -68,11 +68,7 @@ def updatepost(id: int, Post:schema.dbmethod):
     return {"data":uppost}        
 
 
-@router.get("/hai")
-def root():
-    return {"msg": "Hai Mylu Iam Juju"}
-
-@router.get("/get")
+@router.get("/")
 def getmethod():
     return {"msg": "Hai Mylu Iam Juju"}
 
