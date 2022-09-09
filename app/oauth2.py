@@ -1,6 +1,6 @@
 from datetime import datetime,timedelta
 from jose import JWTError,jwt
-from . import schema,models
+from app import models
 from fastapi import Depends, status,HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy .orm import Session
