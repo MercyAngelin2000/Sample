@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from . import models
 from .database import engine
-from .router import post,sqlalchemy , vote
+from .router import post, sqlalchemy , vote
 
 models.Base.metadata.create_all(bind=engine)  # bind = A Connectable used to access the database Meta= collection of table objects
 

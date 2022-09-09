@@ -1,7 +1,6 @@
 from random import randrange
 from fastapi import Body,status,HTTPException,APIRouter
 import time
-from turtle import title
 from fastapi import Body, status,HTTPException
 import psycopg2  
 from ..import schema
