@@ -8,8 +8,18 @@ jobs:             #set of steps used to run
   job1: 
     runs-on: ubuntu-latest   # specifying os 
     steps:
-      - name: pulling git repo            #pulling code form git repo
-        uses: actions/checkout@v2            #action to pull code
-      - name: say hai to mercy              #sample code
-        run: echo "Hai Juju"
+      - name: pulling git repo           
+        uses: actions/checkout@v3           
+      # - name: say hai to mercy              #sample code
+      #   run: echo "Hai Juju"
+      - name: Install python version 3.10
+        uses: actions/setup-python@v4            
+        with:
+          python-version: "3.10"
+      - name: update pip
+        run: python -m pip install --upgrade pip               
+      - name: install all dependencies
+        run: pip install -r requirements.txt
+        
+
   
