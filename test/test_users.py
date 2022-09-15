@@ -1,4 +1,3 @@
-import json
 from app import schema
 from jose import jwt
 from app.config import setting
