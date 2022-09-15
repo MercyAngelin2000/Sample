@@ -1,0 +1,15 @@
+name: Build and Deploy code  #workflow name user defined
+
+#it tells when the ci/cd pipeline should run or to trigger this code, if u want to run push use on:push, wanna run pull use on:pull-request
+# wanna run both req then use under code 
+on: [push,pull_request]
+
+jobs:             #set of steps used to run
+  job1: 
+    runs-on: ubuntu-latest   # specifying os 
+    steps:
+      - name: pulling git repo            #pulling code form git repo
+        uses: actions/checkout@v2            #action to pull code
+      - name: say hai to mercy              #sample code
+        run: echo "Hai Juju"
+  
