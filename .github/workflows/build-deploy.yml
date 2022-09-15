@@ -6,12 +6,20 @@ on: [push,pull_request]
 
 jobs:             #set of steps used to run
   job1: 
+    env:
+      DATABASE_HOSTNAME: localhost
+      DATABASE_PORT: 5432
+      DATABASE_PASSWORD: postgres
+      DATABASE_NAME: fastapi
+      DATABASE_USERNAME: postgres
+      SECRET_KEY: 09d25e094faa6ca2556c818166b7a9563b93f7099f6f0f4caa6cf63b88e8d3e7
+      ALGORITHM: HS256
+      ACCESS_TOKEN_EXPIRE_MINUTE: 60
+
     runs-on: ubuntu-latest   # specifying os 
     steps:
       - name: pulling git repo           
         uses: actions/checkout@v3           
-      # - name: say hai to mercy              #sample code
-      #   run: echo "Hai Juju"
       - name: Install python version 3.10
         uses: actions/setup-python@v4            
         with:
