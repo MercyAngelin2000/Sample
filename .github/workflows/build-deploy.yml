@@ -46,7 +46,7 @@ jobs:             #set of steps used to run
       - name: test with pytest
         run: |
           pip install pytest
-          pytest
+          pytest -v -s
 
 
   
