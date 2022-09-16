@@ -63,7 +63,7 @@ jobs:             #set of steps used to run
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME}}/sample:latest
-          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/sample:buildcache
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}sample:buildcache
           cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/sample:buildcache,mode=max
 
 
