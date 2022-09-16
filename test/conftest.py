@@ -4,15 +4,18 @@ from app. main import app
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker 
 import pytest
+from app.config import setting
 
-SQLALCHEMY_DATABASE_URL = f'postgresql://postgres:postgres@localhost:5432/fastapi_test'
-# SQLALCHEMY_DATABASE_URL = f"postgresql://{setting.database_username}:{setting.database_password}@{setting.database_hostname}:{setting.database_port}/{setting.database_name}_test"   #username:password@hostname/dbname
+# SQLALCHEMY_DATABASE_URL = f'postgresql://postgres:postgres@localhost:5432/fastapi_test'
+SQLALCHEMY_DATABASE_URL = f"postgresql://{setting.database_username}:{setting.database_password}@{setting.database_hostname}:{setting.database_port}/{setting.database_name}_test"  #username:password@hostname/dbname
+
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 TestingSessionlocal = sessionmaker(autocommit=False, autoflush=False,bind=engine) 
 
 @pytest.fixture
 def session():
-    # Base.metadata.drop_all(bind=engine)
+    # print(SQLALCHEMY_DATABASE_URL)
+    Base.metadata.drop_all(bind=engine)
     Base.metadata.create_all(bind=engine)
     db = TestingSessionlocal()
     try:
