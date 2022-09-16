@@ -7,7 +7,7 @@ router = APIRouter()
 
 @router.get("/")
 def getmethod():
-    return {"msg": "Hai Mylu Iam Juju"}
+    return {"msg": "Hai Mylu Iam Juju Kutty"}
     
 
 # while True:                #until the database connection is true, it will not go to another functions
