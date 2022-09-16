@@ -5,7 +5,7 @@ from app.config import setting
 def test_getmethod(client):
     res = client.get("/")
     print(res.json().get("msg"))
-    assert res.json().get("msg") == "Hai Mylu Iam Juju"
+    assert res.json().get("msg") == "Hai Mylu Iam Juju Kutty"
     assert res.status_code == 200
 
 
