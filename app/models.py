@@ -38,8 +38,8 @@ class post(Base):
     __tablename__="post"
     id=Column(Integer, primary_key = True)
     name = Column(String,nullable= False)
-    # age = Column(Integer,nullable=False)
-    # gender = Column(String,nullable=False)
+    age = Column(Integer,nullable=False)
+    gender = Column(String,nullable=False)
 
 
 
