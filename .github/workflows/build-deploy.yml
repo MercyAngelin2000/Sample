@@ -46,7 +46,7 @@ jobs:             #set of steps used to run
         run: |
           pip install pytest
           pytest
-
+          
       - name: Login to Docker Hub
         uses: docker/login-action@v1
         with:
@@ -63,9 +63,9 @@ jobs:             #set of steps used to run
           file: ./Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: mercyangelin/sample:latest
-          cache-from: type=registry,ref=mercyangelin/sample:buildcache
-          cache-to: type=registry,ref=mercyangelin/sample:buildcache,mode=max
+          tags: ${{ secrets.DOCKER_HUB_USERNAME}}/sample:latest 
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/sample:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/sample:buildcache,mode=max
 
 
   
