@@ -4,7 +4,7 @@ name: Build and Deploy code  #workflow name user defined
 # wanna run both req then use under code 
 on: [push,pull_request]
 
-jobs:             #set of steps used to run
+build:             #set of steps used to run
   job1: 
     environment:
       name: testing
@@ -66,6 +66,15 @@ jobs:             #set of steps used to run
           tags: ${{ secrets.DOCKER_HUB_USERNAME}}/sample:latest 
           cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/sample:buildcache
           cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/sample:buildcache,mode=max
+
+
+deploy:
+  runs-on: ubuntu-latest
+  needs: [build]               #the jobs will run parallel so here we mention first build should run then the deploy can run
+
+  steps: 
+    - name: deploying stuff
+      run: echo"going to deploy some stuff"
 
 
   
